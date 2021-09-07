@@ -1,6 +1,7 @@
 package Janken;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -46,7 +47,7 @@ public class main {
 			}else if(yourHand == Hands.Paper) {
 				yourHands[turn] = 2;
 			}
-			
+			//‚±‚±‚Åè‚ğHandsFile‚É‘‚«‚Ş
 			Memorizer(yourName,yourHands[turn]);
 			
 			if (yourHand.winTo(enemyHand)) {
@@ -83,6 +84,9 @@ public class main {
 				yourHands[turn] = 2;
 			}
 			
+			//‚±‚±‚Åè‚ğHandsFile‚É‘‚«‚Ş
+			Memorizer(yourName,yourHands[turn]);
+			
 			if (yourHand.winTo(enemyHand)) {
 				System.out.println(yourName + "@‚Ì‚©‚¿I");
 				p_point += 1;
@@ -104,14 +108,18 @@ public class main {
 	
 	private static void Memorizer(String name,int hands) {
 		try {
-			FileWriter file = new FileWriter("/Tramp/src/Janken/HandsFile.txt");
-			PrintWriter pw = new PrintWriter(new BufferedWriter(file));
+			File file = new File("src\\Janken\\HandsFile.txt");
+			FileWriter pw = new FileWriter(file,true);
+			PrintWriter add = new PrintWriter(pw); 
 			
-			pw.println("test0");
-			pw.println("test1");
+			add.print(hands + " ");
+			System.out.println("debug.log");
+			add.flush();
 			
-			pw.close();
+			add.close();
+			
 		}catch(IOException e) {
+			System.out.println("error!!");
 			e.printStackTrace();
 		}
 	}
