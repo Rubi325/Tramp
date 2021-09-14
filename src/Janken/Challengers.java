@@ -28,5 +28,4 @@ public class Challengers extends Player {
 			}
 		}
 	}
-
 }

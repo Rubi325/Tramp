@@ -33,7 +33,7 @@ public class main {
 		
 		//game開始ィイィィイイイイイイイイ
 		//一回戦目
-		while(p_points < 3) {
+		while(p_points < 5 || e_points < 5) {
 			Hands yourHand  = you.nextHand(yourHands,turn);
 			Hands enemyHand = enemy.nextHand(yourHands,turn);
 			
@@ -63,13 +63,16 @@ public class main {
 		}
 		System.out.println("--------------------------");
 		System.out.println("You : " + p_points + "   Enemy : " + e_points );
-		System.out.println("You Clear....");
+		System.out.println(Judge(p_points,e_points));
+		System.out.println("**************************");
+		System.out.println("");
+		System.out.println("");
 		System.out.println("Enemy Level Up!");
-		System.out.println("--------------------------");
+		
 
 		//二回戦目
 		
-		while(p_point < 3) {
+		while(p_point < 5 || e_point < 5) {
 			Hands yourHand  = you.nextHand(yourHands,turn);
 			Hands enemyHand = enemy.nextHand(yourHands,turn);
 			
@@ -90,8 +93,8 @@ public class main {
 			if (yourHand.winTo(enemyHand)) {
 				System.out.println(yourName + "　のかち！");
 				p_point += 1;
-				System.out.println(yourName + "　のまけ…");
 			} else if (yourHand.loseTo(enemyHand)) {
+				System.out.println(yourName + "　のまけ…");
 				e_point += 1;
 			} else {
 				System.out.println("あいこです。");
@@ -101,8 +104,8 @@ public class main {
 		
 		System.out.println("--------------------------");
 		System.out.println("You : " + p_point + "   Enemy : " + e_point );
-		System.out.println("You Clear....");
-		System.out.println("--------------------------");
+		System.out.println(Judge(p_point,e_point));
+		System.out.println("**************************");
 		
 	}
 	
@@ -113,7 +116,6 @@ public class main {
 			PrintWriter add = new PrintWriter(pw); 
 			
 			add.print(hands + " ");
-			System.out.println("debug.log");
 			add.flush();
 			
 			add.close();
@@ -123,5 +125,11 @@ public class main {
 			e.printStackTrace();
 		}
 	}
-	
+	private static String Judge(int player,int enemy) {
+		if(player>enemy) {
+			return "You Win !!!";
+		}else {
+			return "You Lose...";
+		}
+	}
 }
