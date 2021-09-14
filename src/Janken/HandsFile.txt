@@ -1,9 +1,6 @@
-p e 0 2p e 1 1p e 2 1p e 0 1p e 1 1p e 2 1p e 2 1p e 2 1
-p e 1 1p e 0 1p e 2 1p e 1 1p e 0 1p e 2 1p e 1 1p e 0 2p e 1 1p e 1 2p e 1 2p e 0 1
-p e 0 1p e 1 0p e 2 1p e 0 1p e 2 1p e 2 1p e 1 2p e 0 1p e 2 1
-p e 1 1p e 0 1p e 2 2p e 1 2p e 0 1p e 2 2p e 1 1p e 0 2p e 2 2p e 1 2p e 0 2p e 2 2p e 1 2
-p e 0 1p e 1 2p e 1 1p e 2 1p e 0 1p e 2 1p e 0 1p e 2 2p e 0 2p e 1 2
-p e 2 1p e 1 2p e 0 2p e 2 1p e 0 2p e 2 1
+matsuo
+p e 0 1p e 1 0p e 2 1p e 0 1p e 0 1p e 2 1p e 2 0p e 0 2p e 2 2p e 1 0
+p e 0 2p e 2 2p e 1 0p e 1 0p e 0 1p e 2 2p e 2 2p e 0 2p e 2 2p e 2 1
 abe
-p e 0 1p e 1 0p e 2 1p e 1 1p e 2 1p e 0 1p e 2 1p e 2 2p e 1 2p e 0 2
-p e 2 2p e 1 2p e 0 2p e 2 1p e 2 2p e 1 1p e 0 2p e 0 1p e 0 2p e 1 2p e 0 1p e 0 0p e 0 2
+p e 1 1p e 2 2p e 1 2p e 2 2p e 2 2p e 2 2p e 0 2p e 1 2p e 2 1p e 1 1p e 1 1p e 0 1p e 2 1p e 1 2p e 0 2p e 0 1
+p e 0 2p e 1 2p e 2 1p e 1 0p e 0 1p e 0 2p e 2 2p e 1 1p e 1 1p e 0 2

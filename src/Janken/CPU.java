@@ -102,27 +102,5 @@ public class CPU extends Player {
 		} else {
 			return 2;
 		}
-		/*
-		if(hogehoge[0] >= hogehoge[1] && hogehoge[0] >= hogehoge[2]) {
-			return 0;
-		}else if(hogehoge[1] >= hogehoge[0] && hogehoge[1] >= hogehoge[2]) {
-			return 1;
-		}else if(hogehoge[2] >= hogehoge[0] && hogehoge[2] >= hogehoge[1]) {
-			return 2;
-		}
-		*/
 	}
-
-
 }
-
-/*
-if(i>=2) { //3‰ñˆÈã‚Ì‚¶‚á‚ñ‚¯‚ñ‚Ì‚Ì‚İ”­“®AIIII
-if(a[i-2] == 0) {//g
-	return Hands.fromInt(2);
-}else if(a[i-2] == 1) {//c
-	return Hands.fromInt(0);
-}else if(a[i-2] == 2){//p
-	return Hands.fromInt(1);
-}
-}*/
