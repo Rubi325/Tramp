@@ -72,7 +72,7 @@ public class CPU extends Player {
 
 		return Hands.fromInt((int) (Math.random() * 3));
 	}
-
+	
 	public int Calculate(int a) {
 		double [] hogehoge = new double [3];
 		double len=0.0;

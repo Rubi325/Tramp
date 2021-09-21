@@ -1,6 +1,3 @@
-matsuo
-p e 0 1p e 1 0p e 2 1p e 0 1p e 0 1p e 2 1p e 2 0p e 0 2p e 2 2p e 1 0
-p e 0 2p e 2 2p e 1 0p e 1 0p e 0 1p e 2 2p e 2 2p e 0 2p e 2 2p e 2 1
 abe
-p e 1 1p e 2 2p e 1 2p e 2 2p e 2 2p e 2 2p e 0 2p e 1 2p e 2 1p e 1 1p e 1 1p e 0 1p e 2 1p e 1 2p e 0 2p e 0 1
-p e 0 2p e 1 2p e 2 1p e 1 0p e 0 1p e 0 2p e 2 2p e 1 1p e 1 1p e 0 2
+0212212111011121010120
+12022112012111121101
