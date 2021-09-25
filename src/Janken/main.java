@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class main {
 	//過去のデータ回数・手
-	static int Pre_Count = 0;
+	static int Pre_Turn = 0;
 	static int [] Pre_yourHands = new int [1000] ;
 	
 	public static void main(String[] args) {
@@ -42,13 +42,13 @@ public class main {
 		ReadLogFile(yourName);
 		System.out.print("");
 		//過去データがあれば代入
-		for(int i=0;i<Pre_Count;i++) {
+		for(int i=0;i<Pre_Turn;i++) {
 			yourHands[i] = Pre_yourHands[i];
 			enemy.nextHand(yourHands, i);
 			turn++;
-			System.out.print(Pre_Count);
+			System.out.print(Pre_Turn);
 		}
-		System.out.println(turn + " " + Pre_Count);
+		System.out.println(turn + " " + Pre_Turn);
 		
 		//game開始、二回
 		for(int i=0;i<2;i++) {
@@ -175,7 +175,7 @@ public class main {
 							if(i%2==0) {
 								intSplit[i] = Integer.parseInt(strSplit[i]);
 								Pre_yourHands[i] = Integer.parseInt(strSplit[i]);
-								Pre_Count++;
+								Pre_Turn++;
 							}
 						}
 						NamePoint+=3;
