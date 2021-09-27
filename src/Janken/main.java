@@ -39,16 +39,17 @@ public class main {
 		System.out.println("Enemy name　" + enemyName);
 		
 		//ファイル読込
-		ReadLogFile(yourName);
-		System.out.print("");
+		Pre_Turn = ReadLogFile(yourName);
+		System.out.print("aaaaa");
+		System.out.print(Pre_Turn);
 		//過去データがあれば代入
 		for(int i=0;i<Pre_Turn;i++) {
 			yourHands[i] = Pre_yourHands[i];
 			enemy.nextHand(yourHands, i);
 			turn++;
-			System.out.print(Pre_Turn);
+			System.out.print(Pre_Turn + "" + turn);
 		}
-		System.out.println(turn + " " + Pre_Turn);
+		//System.out.println(turn + " " + Pre_Turn);
 		
 		//game開始、二回
 		for(int i=0;i<2;i++) {
@@ -148,15 +149,19 @@ public class main {
 		}
 	}
 	//データを参照し、配列へ格納する
-	private static void ReadLogFile(String PlayerName) {
+	private static int ReadLogFile(String PlayerName) {
+		
 		//最後まで読み込んだら...false
 		boolean NullPo = true;
+		
 		//名前の場所
 		int NamePoint = 1;
 		String Pre_PlayerName;
+		
 		//file読込
 		File file = new File("src\\Janken\\HandsFile.txt");
-		while(NullPo = false) {
+		
+		while(NullPo == false) {
 			Scanner sc;
 			String temp;
 			
@@ -171,6 +176,7 @@ public class main {
 						String strSplit[] = temp.split("");
 						int intStdInLen = strSplit.length;
 						int intSplit [] = new int[intStdInLen];
+						System.out.println("Veah" + intStdInLen);
 						for(int i=0;i<intStdInLen;i++) {
 							if(i%2==0) {
 								intSplit[i] = Integer.parseInt(strSplit[i]);
@@ -181,7 +187,7 @@ public class main {
 						NamePoint+=3;
 					}else if(Pre_PlayerName == null){
 						System.out.println("NoData Player!");
-						break;
+						NullPo = false;
 					}
 				}else {
 					NamePoint++;
@@ -194,5 +200,6 @@ public class main {
 				e.printStackTrace();
 			}
 		}
+		return Pre_Turn;
 	}
 }
