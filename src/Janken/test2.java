@@ -20,6 +20,9 @@ public class test2 {
 				int NamePoint = 1;
 				String Pre_PlayerName;
 				
+				long max = 0;
+				String HandsFile_path = "src\\Janken\\HandsFile.txt";
+				
 				//fileì«çû
 				File file = new File("src\\Janken\\HandsFile.txt");
 				
@@ -27,22 +30,27 @@ public class test2 {
 				BufferedReader br = new BufferedReader(isr);
 				String PlayerName = br.readLine();
 				
-				while(NullPo == true) {
+				max = CountLine.CountLineResult(HandsFile_path);
+				System.out.println(max);
+				
+				while(NamePoint<max) {
 					Scanner sc;
 					String temp;
+					
 					try {
 						sc = new Scanner(file);
 						//ÉvÉåÉCÉÑÅ[ñºîªíf
 						if(NamePoint%3 == 1) {
 							Pre_PlayerName = sc.nextLine();
-							System.out.println(Pre_PlayerName);
-							if(Pre_PlayerName.contentEquals(PlayerName)) {
-								System.out.println(NamePoint);
+							System.out.println(Pre_PlayerName + "  " + NamePoint);
+							
+							if(Pre_PlayerName.equals(PlayerName)) {
+								//System.out.println(NamePoint);
 								temp = sc.nextLine();
 								String strSplit[] = temp.split("");
 								int intStdInLen = strSplit.length;
 								int intSplit [] = new int[intStdInLen];
-								System.out.println("Veah" + intStdInLen);
+								//System.out.println("Veah" + intStdInLen);
 								for(int i=0;i<intStdInLen;i++) {
 									if(i%2==0) {
 										intSplit[i] = Integer.parseInt(strSplit[i]);
@@ -50,15 +58,13 @@ public class test2 {
 										Pre_Turn++;
 									}
 								}
-								NamePoint+=3;
-							}else if(Pre_PlayerName.equals(null)){
-								System.out.println("NoData Player!");
-								NullPo = false;
+								NamePoint+=2;
 							}else {
-								NamePoint++;
+								System.out.println("Any Player!");
 							}
 						}else {
-							NamePoint++;
+							Pre_PlayerName = sc.nextLine();
+							System.out.println("Any Player's Hands");
 						}
 					} catch (FileNotFoundException e) {
 						System.out.println("filenot");
@@ -67,9 +73,7 @@ public class test2 {
 						System.out.println("Ioe");
 						e.printStackTrace();
 					}
-					if(NamePoint==100) {
-						NullPo = false;
-					}
+					NamePoint++;
 				}
 				System.out.println("Pre_turn:" + Pre_Turn);
 			}
