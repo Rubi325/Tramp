@@ -1,9 +1,11 @@
 package Janken;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
@@ -12,8 +14,8 @@ public class main {
 	//過去のデータ回数・手
 	static int Pre_Turn = 0;
 	static int [] Pre_yourHands = new int [1000] ;
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws IOException {
 
 		Player you   = new Challengers();
 		Player enemy = new CPU();
@@ -21,11 +23,11 @@ public class main {
 		//ポイント
 		int p_points=0;
 		int e_points=0;
-		
-		
+
+
 		//ターン数、じゃんけんの手の格納用配列　
 		int turn = 0;
-		
+
 		int [] yourHands = new int [1000];
 		int [] enemyHands = new int [1000];
 
@@ -37,20 +39,20 @@ public class main {
 		String enemyName = enemy.getName();
 		System.out.println("Your name　" + yourName);
 		System.out.println("Enemy name　" + enemyName);
-		
+
 		//ファイル読込
-		Pre_Turn = ReadLogFile(yourName);
-		System.out.print("aaaaa");
-		System.out.print(Pre_Turn);
+		ReadLogFile(yourName);
+		//System.out.println("aaaaa");
+		System.out.println("pre_turn : " + Pre_Turn);
 		//過去データがあれば代入
 		for(int i=0;i<Pre_Turn;i++) {
 			yourHands[i] = Pre_yourHands[i];
 			enemy.nextHand(yourHands, i);
 			turn++;
-			System.out.print(Pre_Turn + "" + turn);
+			System.out.println(Pre_Turn + " " + turn);
 		}
 		//System.out.println(turn + " " + Pre_Turn);
-		
+
 		//game開始、二回
 		for(int i=0;i<2;i++) {
 			while(p_points < 5 && e_points < 5) {
@@ -135,7 +137,7 @@ public class main {
 			if(turn == 0) {
 				add.println(name);
 			}
-			
+
 			add.print(p_hands + "" + e_hands);
 			if(p_pointa == 5 || e_pointa == 5) {
 				add.println();
@@ -149,29 +151,36 @@ public class main {
 		}
 	}
 	//データを参照し、配列へ格納する
-	private static int ReadLogFile(String PlayerName) {
-		
-		//最後まで読み込んだら...false
-		boolean NullPo = true;
-		
+	private static void ReadLogFile(String PlayerName) throws IOException {
 		//名前の場所
 		int NamePoint = 1;
 		String Pre_PlayerName;
-		
+
+		long max = 0;
+		String HandsFile_path = "src\\Janken\\HandsFile.txt";
+
 		//file読込
 		File file = new File("src\\Janken\\HandsFile.txt");
-		
-		while(NullPo == false) {
-			Scanner sc;
+
+		max = CountLine.CountLineResult(HandsFile_path);
+		//System.out.println(max);
+
+		Scanner sc;
+		sc = new Scanner(file);
+
+		while(NamePoint<=max) {
+
 			String temp;
-			
-			try {
-				sc = new Scanner(file);
-				//プレイヤー名判断
-				if(NamePoint%3 == 1) {
-					Pre_PlayerName = sc.nextLine();
-					System.out.println(Pre_PlayerName);
-					if(Pre_PlayerName == PlayerName) {
+
+			//プレイヤー名判断
+			if(NamePoint%3 == 1) {
+				Pre_PlayerName = sc.nextLine();
+				//System.out.println(Pre_PlayerName + "  " + NamePoint);
+
+				if(Pre_PlayerName.equals(PlayerName)) {
+					System.out.println(NamePoint + PlayerName);
+					for(int i_0=0;i_0<2;i_0++) {//二行読込
+						System.out.println("Loading..." + i_0);
 						temp = sc.nextLine();
 						String strSplit[] = temp.split("");
 						int intStdInLen = strSplit.length;
@@ -184,22 +193,24 @@ public class main {
 								Pre_Turn++;
 							}
 						}
-						NamePoint+=3;
-					}else if(Pre_PlayerName == null){
-						System.out.println("NoData Player!");
-						NullPo = false;
 					}
+					//System.out.println(Pre_PlayerName + " : " + NamePoint);
+					NamePoint+=2;
+					//System.out.println(Pre_PlayerName + " :: " + NamePoint);
 				}else {
-					NamePoint++;
+					System.out.println("Othor Player!");
 				}
-			} catch (FileNotFoundException e) {
-				System.out.println("filenot");
-				e.printStackTrace();
-			} catch (IOException e) {
-				System.out.println("Ioe");
-				e.printStackTrace();
+			}else {
+				Pre_PlayerName = sc.nextLine();
+				System.out.println("Othor Player's Hands");
 			}
+
+			NamePoint++;
 		}
-		return Pre_Turn;
+
+		sc.close();
+
+		//System.out.println("Pre_turn:" + Pre_Turn);
+		//return Pre_Turn;
 	}
 }
