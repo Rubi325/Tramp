@@ -14,6 +14,7 @@ public class main {
 	//過去のデータ回数・手
 	static int Pre_Turn = 0;
 	static int [] Pre_yourHands = new int [1000] ;
+	static boolean NameWriting = true;
 
 	public static void main(String[] args) throws IOException {
 
@@ -61,7 +62,7 @@ public class main {
 
 				System.out.println(yourName   + "は　" + yourHand  +  "  をだした。");
 				System.out.println(enemyName  + "は　" + enemyHand +  "  をだした。");
-
+				
 				yourHands[turn] = Math_P_Hands(yourHand);
 				enemyHands[turn] = Math_E_Hands(enemyHand);
 
@@ -134,8 +135,9 @@ public class main {
 			File file = new File("src\\Janken\\HandsFile.txt");
 			FileWriter pw = new FileWriter(file,true);
 			PrintWriter add = new PrintWriter(pw);
-			if(turn == 0) {
+			if(NameWriting == true) {
 				add.println(name);
+				NameWriting = false;
 			}
 
 			add.print(p_hands + "" + e_hands);

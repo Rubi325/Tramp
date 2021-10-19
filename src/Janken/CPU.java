@@ -17,17 +17,36 @@ public class CPU extends Player {
 
 	@Override
 	public Hands nextHand(int [] a,int turn) { //リズム実装
+		
+		if(turn > 1) {
+			//代入
+			judge[a[turn-2]][a[turn-1]]++;
+			
+			//モンテカルロ法呼出↓
+			//モンテカルロ法整理
+			//グ―、チョキ、パーで各手の次の確立を記憶させる
+			//前の手　-> 次の手
+			//int a [] からは前の手を記憶させてある
+			/* | e\p | g | c | p |
+			 * |-----|---|---|---|
+			 * |  g  | 0 | 0 | 0 |
+			 * |  c  | 0 | 0 | 0 |
+			 * |  p  | 0 | 0 | 0 |
+			 */
+			switch(a[turn]) {
+			case 0:
+				return Hands.fromInt(Calculate(0));
+			case 1:
+				return Hands.fromInt(Calculate(1));
+			case 2:
+				return Hands.fromInt(Calculate(2));
+			}
+		}
 
-		//モンテカルロ法整理
-		//グ―、チョキ、パーで各手の次の確立を記憶させる
-		//前の手　-> 次の手
-		//int a [] からは前の手を記憶させてある
-		/* | e\p | g | c | p |
-		 * |-----|---|---|---|
-		 * |  g  | 0 | 0 | 0 |
-		 * |  c  | 0 | 0 | 0 |
-		 * |  p  | 0 | 0 | 0 |
-		 */
+		return Hands.fromInt((int) (Math.random() * 3));
+	}
+	
+	public void Strage(int [] a,int turn) {
 		if(turn > 1) {
 			//グーの場合
 			if(a[turn-2] == 0) {
@@ -59,20 +78,11 @@ public class CPU extends Player {
 					judge[2][2]++;
 				}
 			}
-
-			switch(a[turn]) {
-			case 0:
-				return Hands.fromInt(Calculate(0));
-			case 1:
-				return Hands.fromInt(Calculate(1));
-			case 2:
-				return Hands.fromInt(Calculate(2));
-			}
 		}
-
-		return Hands.fromInt((int) (Math.random() * 3));
 	}
 	
+	
+	//モンテカルロ法↓
 	public int Calculate(int a) {
 		double [] hogehoge = new double [3];
 		double len=0.0;
