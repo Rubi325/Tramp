@@ -1,5 +1,12 @@
 package Janken;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 public class CPU extends Player {
 
 	private final String[] names = {"試作１号"};
@@ -22,17 +29,13 @@ public class CPU extends Player {
 			//代入
 			judge[a[turn-2]][a[turn-1]]++;
 			
+			//ほんへ
+			//パターン解析4-7
+			//パターン抽出
+			//Pattern(a,turn);
+			//パターン選択
+			
 			//モンテカルロ法呼出↓
-			//モンテカルロ法整理
-			//グ―、チョキ、パーで各手の次の確立を記憶させる
-			//前の手　-> 次の手
-			//int a [] からは前の手を記憶させてある
-			/* | e\p | g | c | p |
-			 * |-----|---|---|---|
-			 * |  g  | 0 | 0 | 0 |
-			 * |  c  | 0 | 0 | 0 |
-			 * |  p  | 0 | 0 | 0 |
-			 */
 			switch(a[turn]) {
 			case 0:
 				return Hands.fromInt(Calculate(0));
@@ -46,43 +49,17 @@ public class CPU extends Player {
 		return Hands.fromInt((int) (Math.random() * 3));
 	}
 	
-	public void Strage(int [] a,int turn) {
-		if(turn > 1) {
-			//グーの場合
-			if(a[turn-2] == 0) {
-				if(a[turn-1] == 0) {
-					judge[0][0]++;
-				}else if(a[turn-1] == 1) {
-					judge[0][1]++;
-				}else if(a[turn-1] == 2) {
-					judge[0][2]++;
-				}
-			}
-			//チョキの場合
-			if(a[turn-2] == 1) {
-				if(a[turn-1] == 0) {
-					judge[1][0]++;
-				}else if(a[turn-1] == 1) {
-					judge[1][1]++;
-				}else if(a[turn-1] == 2) {
-					judge[1][2]++;
-				}
-			}
-			//パーの場合
-			if(a[turn-2] == 2) {
-				if(a[turn-1] == 0) {
-					judge[2][0]++;
-				}else if(a[turn-1] == 1) {
-					judge[2][1]++;
-				}else if(a[turn-1] == 2) {
-					judge[2][2]++;
-				}
-			}
-		}
-	}
-	
-	
 	//モンテカルロ法↓
+	//モンテカルロ法整理
+	//グ―、チョキ、パーで各手の次の確立を記憶させる
+	//前の手　-> 次の手
+	//int a [] からは前の手を記憶させてある
+	/* | e\p | g | c | p |
+	 * |-----|---|---|---|
+	 * |  g  | 0 | 0 | 0 |
+	 * |  c  | 0 | 0 | 0 |
+	 * |  p  | 0 | 0 | 0 |
+	 */
 	public int Calculate(int a) {
 		double [] hogehoge = new double [3];
 		double len=0.0;
@@ -97,12 +74,12 @@ public class CPU extends Player {
 				hogehoge[i] = judge[a][i] / len;
 			}
 		}
+		/*
 		System.out.println(judge[0][0] + "|" + judge[0][1] + "|" + judge[0][2]);
 		System.out.println(judge[1][0] + "|" + judge[1][1] + "|" + judge[1][2]);
 		System.out.println(judge[2][0] + "|" + judge[2][1] + "|" + judge[2][2]);
-
 		System.out.println(hogehoge[0] + " ::: " + hogehoge[1] + " ::: " + hogehoge[2]);
-
+		*/
 		double x = Math.random();
 		
 		if (x<hogehoge[0]) {
@@ -113,4 +90,46 @@ public class CPU extends Player {
 			return 2;
 		}
 	}
+	
+	//ほんへ
+	//パターン抽出
+	public void Pattern(int [] a,int turn){
+		
+		String PatternFile_path = "src\\Janken\\PatternFile.txt";
+		File file = new File(PatternFile_path);
+		try {
+			PrintWriter add = new PrintWriter(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ArrayList<Integer> list1 = new ArrayList<Integer>();
+		ArrayList<Integer> list2 = new ArrayList<Integer>();
+		
+		//仮変数
+		int x=4;
+		
+		if(a.length > x) {
+			for(int i=x;i<a.length;i++) {
+				for(int l=x;l>0;l--) {
+					list1.add(a[i-l]);
+				}
+				for(int j=x+1;j<a.length;j++) {
+					//小さい順に格納
+					for(int l=x;l>0;l--) {
+						list2.add(a[j-l]);
+					}
+					if(list1.equals(list2)) {
+						
+					}
+				}
+			}
+		}
+	}
+	//パターン解析3
+	
+	
+	
+	
+	
 }
