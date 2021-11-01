@@ -74,12 +74,12 @@ public class CPU extends Player {
 				hogehoge[i] = judge[a][i] / len;
 			}
 		}
-		/*
-		System.out.println(judge[0][0] + "|" + judge[0][1] + "|" + judge[0][2]);
-		System.out.println(judge[1][0] + "|" + judge[1][1] + "|" + judge[1][2]);
-		System.out.println(judge[2][0] + "|" + judge[2][1] + "|" + judge[2][2]);
-		System.out.println(hogehoge[0] + " ::: " + hogehoge[1] + " ::: " + hogehoge[2]);
-		*/
+		
+		//System.out.println(judge[0][0] + "|" + judge[0][1] + "|" + judge[0][2]);
+		//System.out.println(judge[1][0] + "|" + judge[1][1] + "|" + judge[1][2]);
+		//System.out.println(judge[2][0] + "|" + judge[2][1] + "|" + judge[2][2]);
+		//System.out.println(hogehoge[0] + " ::: " + hogehoge[1] + " ::: " + hogehoge[2]);
+		
 		double x = Math.random();
 		
 		if (x<hogehoge[0]) {
