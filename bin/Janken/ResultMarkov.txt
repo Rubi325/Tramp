@@ -1,0 +1,421 @@
+結果集計！！！
+
+
+プレイヤー名 : kadowaki
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　1 あいこ数　：　2
+Playerの勝率　：　62 %  CPUの勝率　: 12 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　1 あいこ数　：　3
+Playerの勝率　：　55 %  CPUの勝率　: 11 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　10 CPU勝利数　：　2 あいこ数　：　5
+Playerの勝率　：　58 %  CPUの勝率　: 11 % 
+
+
+プレイヤー名 : kadowaki
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　4 あいこ数　：　1
+Playerの勝率　：　50 %  CPUの勝率　: 40 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　3 CPU勝利数　：　5 あいこ数　：　7
+Playerの勝率　：　20 %  CPUの勝率　: 33 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　8 CPU勝利数　：　9 あいこ数　：　8
+Playerの勝率　：　32 %  CPUの勝率　: 36 % 
+
+
+プレイヤー名 : raiga
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　4
+Playerの勝率　：　41 %  CPUの勝率　: 25 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　2 CPU勝利数　：　5 あいこ数　：　6
+Playerの勝率　：　15 %  CPUの勝率　: 38 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　7 CPU勝利数　：　8 あいこ数　：　10
+Playerの勝率　：　28 %  CPUの勝率　: 32 % 
+
+
+プレイヤー名 : raiga
+Round1
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　4
+Playerの勝率　：　10 %  CPUの勝率　: 50 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　6
+Playerの勝率　：　35 %  CPUの勝率　: 21 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　6 CPU勝利数　：　8 あいこ数　：　10
+Playerの勝率　：　25 %  CPUの勝率　: 33 % 
+
+
+プレイヤー名 : hiropen
+Round1
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　2
+Playerの勝率　：　12 %  CPUの勝率　: 62 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　4
+Playerの勝率　：　41 %  CPUの勝率　: 25 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　6 CPU勝利数　：　8 あいこ数　：　6
+Playerの勝率　：　30 %  CPUの勝率　: 40 % 
+
+
+プレイヤー名 : hiropen
+Round1
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　2
+Playerの勝率　：　12 %  CPUの勝率　: 62 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　2
+Playerの勝率　：　55 %  CPUの勝率　: 22 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　6 CPU勝利数　：　7 あいこ数　：　4
+Playerの勝率　：　35 %  CPUの勝率　: 41 % 
+
+
+プレイヤー名 : sigure
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　4 あいこ数　：　3
+Playerの勝率　：　41 %  CPUの勝率　: 33 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　3 CPU勝利数　：　5 あいこ数　：　6
+Playerの勝率　：　21 %  CPUの勝率　: 35 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　8 CPU勝利数　：　9 あいこ数　：　9
+Playerの勝率　：　30 %  CPUの勝率　: 34 % 
+
+
+プレイヤー名 : sigure
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　1
+Playerの勝率　：　62 %  CPUの勝率　: 25 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　2
+Playerの勝率　：　12 %  CPUの勝率　: 62 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　6 CPU勝利数　：　7 あいこ数　：　3
+Playerの勝率　：　37 %  CPUの勝率　: 43 % 
+
+
+プレイヤー名 : aki
+Round1
+プレイヤー勝利数　：　4 CPU勝利数　：　5 あいこ数　：　3
+Playerの勝率　：　33 %  CPUの勝率　: 41 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　8
+Playerの勝率　：　31 %  CPUの勝率　: 18 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　9 CPU勝利数　：　8 あいこ数　：　11
+Playerの勝率　：　32 %  CPUの勝率　: 28 % 
+
+
+プレイヤー名 : aki
+Round1
+プレイヤー勝利数　：　3 CPU勝利数　：　5 あいこ数　：　7
+Playerの勝率　：　20 %  CPUの勝率　: 33 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　3
+Playerの勝率　：　11 %  CPUの勝率　: 55 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　4 CPU勝利数　：　10 あいこ数　：　10
+Playerの勝率　：　16 %  CPUの勝率　: 41 % 
+
+
+プレイヤー名 : morio
+Round1
+プレイヤー勝利数　：　3 CPU勝利数　：　5 あいこ数　：　7
+Playerの勝率　：　20 %  CPUの勝率　: 33 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　5
+Playerの勝率　：　9 %  CPUの勝率　: 45 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　4 CPU勝利数　：　10 あいこ数　：　12
+Playerの勝率　：　15 %  CPUの勝率　: 38 % 
+
+
+プレイヤー名 : morio
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　4
+Playerの勝率　：　41 %  CPUの勝率　: 25 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　1 あいこ数　：　0
+Playerの勝率　：　83 %  CPUの勝率　: 16 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　10 CPU勝利数　：　4 あいこ数　：　4
+Playerの勝率　：　55 %  CPUの勝率　: 22 % 
+
+
+プレイヤー名 : nemoto
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　1 あいこ数　：　2
+Playerの勝率　：　62 %  CPUの勝率　: 12 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　2
+Playerの勝率　：　55 %  CPUの勝率　: 22 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　10 CPU勝利数　：　3 あいこ数　：　4
+Playerの勝率　：　58 %  CPUの勝率　: 17 % 
+
+
+プレイヤー名 : nemoto
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　2
+Playerの勝率　：　55 %  CPUの勝率　: 22 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　3
+Playerの勝率　：　45 %  CPUの勝率　: 27 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　10 CPU勝利数　：　5 あいこ数　：　5
+Playerの勝率　：　50 %  CPUの勝率　: 25 % 
+
+
+プレイヤー名 : ok21
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　6
+Playerの勝率　：　38 %  CPUの勝率　: 15 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　4 CPU勝利数　：　5 あいこ数　：　2
+Playerの勝率　：　36 %  CPUの勝率　: 45 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　9 CPU勝利数　：　7 あいこ数　：　8
+Playerの勝率　：　37 %  CPUの勝率　: 29 % 
+
+
+プレイヤー名 : ok21
+Round1
+プレイヤー勝利数　：　4 CPU勝利数　：　5 あいこ数　：　7
+Playerの勝率　：　25 %  CPUの勝率　: 31 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　8
+Playerの勝率　：　31 %  CPUの勝率　: 18 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　9 CPU勝利数　：　8 あいこ数　：　15
+Playerの勝率　：　28 %  CPUの勝率　: 25 % 
+
+
+プレイヤー名 : masami
+Round1
+プレイヤー勝利数　：　3 CPU勝利数　：　5 あいこ数　：　4
+Playerの勝率　：　25 %  CPUの勝率　: 41 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　4 CPU勝利数　：　5 あいこ数　：　8
+Playerの勝率　：　23 %  CPUの勝率　: 29 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　7 CPU勝利数　：　10 あいこ数　：　12
+Playerの勝率　：　24 %  CPUの勝率　: 34 % 
+
+
+プレイヤー名 : masami
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　6
+Playerの勝率　：　35 %  CPUの勝率　: 21 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　0 CPU勝利数　：　5 あいこ数　：　6
+Playerの勝率　：　0 %  CPUの勝率　: 45 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　8 あいこ数　：　12
+Playerの勝率　：　20 %  CPUの勝率　: 32 % 
+
+
+プレイヤー名 : noruru
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　4 あいこ数　：　7
+Playerの勝率　：　31 %  CPUの勝率　: 25 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　2 CPU勝利数　：　5 あいこ数　：　3
+Playerの勝率　：　20 %  CPUの勝率　: 50 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　7 CPU勝利数　：　9 あいこ数　：　10
+Playerの勝率　：　26 %  CPUの勝率　: 34 % 
+
+
+プレイヤー名 : noruru
+Round1
+プレイヤー勝利数　：　0 CPU勝利数　：　5 あいこ数　：　3
+Playerの勝率　：　0 %  CPUの勝率　: 62 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　3
+Playerの勝率　：　45 %  CPUの勝率　: 27 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　8 あいこ数　：　6
+Playerの勝率　：　26 %  CPUの勝率　: 42 % 
+
+
+プレイヤー名 : nanohana
+Round1
+プレイヤー勝利数　：　2 CPU勝利数　：　5 あいこ数　：　3
+Playerの勝率　：　20 %  CPUの勝率　: 50 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　6
+Playerの勝率　：　8 %  CPUの勝率　: 41 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　3 CPU勝利数　：　10 あいこ数　：　9
+Playerの勝率　：　13 %  CPUの勝率　: 45 % 
+
+
+プレイヤー名 : nanohana
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　4
+Playerの勝率　：　45 %  CPUの勝率　: 18 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　2 CPU勝利数　：　5 あいこ数　：　5
+Playerの勝率　：　16 %  CPUの勝率　: 41 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　7 CPU勝利数　：　7 あいこ数　：　9
+Playerの勝率　：　30 %  CPUの勝率　: 30 % 
+
+
+プレイヤー名 : john
+Round1
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　3
+Playerの勝率　：　45 %  CPUの勝率　: 27 % 
+Playerの勝利です
+
+Round2
+プレイヤー勝利数　：　4 CPU勝利数　：　5 あいこ数　：　4
+Playerの勝率　：　30 %  CPUの勝率　: 38 % 
+CPUの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　9 CPU勝利数　：　8 あいこ数　：　7
+Playerの勝率　：　37 %  CPUの勝率　: 33 % 
+
+
+プレイヤー名 : john
+Round1
+プレイヤー勝利数　：　3 CPU勝利数　：　5 あいこ数　：　4
+Playerの勝率　：　25 %  CPUの勝率　: 41 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　3 あいこ数　：　2
+Playerの勝率　：　50 %  CPUの勝率　: 30 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　8 CPU勝利数　：　8 あいこ数　：　6
+Playerの勝率　：　36 %  CPUの勝率　: 36 % 
+
+
+プレイヤー名 : tama
+Round1
+プレイヤー勝利数　：　1 CPU勝利数　：　5 あいこ数　：　2
+Playerの勝率　：　12 %  CPUの勝率　: 62 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　4 あいこ数　：　5
+Playerの勝率　：　35 %  CPUの勝率　: 28 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　6 CPU勝利数　：　9 あいこ数　：　7
+Playerの勝率　：　27 %  CPUの勝率　: 40 % 
+
+
+プレイヤー名 : tama
+Round1
+プレイヤー勝利数　：　4 CPU勝利数　：　5 あいこ数　：　6
+Playerの勝率　：　26 %  CPUの勝率　: 33 % 
+CPUの勝利です
+
+Round2
+プレイヤー勝利数　：　5 CPU勝利数　：　2 あいこ数　：　0
+Playerの勝率　：　71 %  CPUの勝率　: 28 % 
+Playerの勝利です
+
+Round1＋Round2
+プレイヤー勝利数　：　9 CPU勝利数　：　7 あいこ数　：　6
+Playerの勝率　：　40 %  CPUの勝率　: 31 % 
+
+
+Result....CPUセット勝利数　：　26　　Playerセット勝利数　：　26
+勝率....50 %

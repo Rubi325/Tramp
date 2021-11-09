@@ -14,7 +14,7 @@ public class CPU extends Player {
 	int [][] judge = {{0,0,0},{0,0,0},{0,0,0}};
 	int gu=0,choki=0,pa=0;
 
-	
+
 
 	@Override
 	public void setName() {
@@ -24,17 +24,19 @@ public class CPU extends Player {
 
 	@Override
 	public Hands nextHand(int [] a,int turn) { //リズム実装
-		
+
 		if(turn > 1) {
 			//代入
 			judge[a[turn-2]][a[turn-1]]++;
-			
+
 			//ほんへ
-			//パターン解析4-7
+			//パターン解析4-7書出
+			PatternFileWriter(a,turn);
 			//パターン抽出
-			//Pattern(a,turn);
+			Pattern(a,turn);
+
 			//パターン選択
-			
+
 			//モンテカルロ法呼出↓
 			switch(a[turn]) {
 			case 0:
@@ -48,7 +50,7 @@ public class CPU extends Player {
 
 		return Hands.fromInt((int) (Math.random() * 3));
 	}
-	
+
 	//モンテカルロ法↓
 	//モンテカルロ法整理
 	//グ―、チョキ、パーで各手の次の確立を記憶させる
@@ -66,7 +68,7 @@ public class CPU extends Player {
 		for(int i=0;i<3;i++) {
 			len += judge[a][i];
 		}
-		
+
 		for(int i=0;i<3;i++) {
 			if(judge[a][i] == 0) {
 				hogehoge[i]=0;
@@ -74,14 +76,14 @@ public class CPU extends Player {
 				hogehoge[i] = judge[a][i] / len;
 			}
 		}
-		
+
 		//System.out.println(judge[0][0] + "|" + judge[0][1] + "|" + judge[0][2]);
 		//System.out.println(judge[1][0] + "|" + judge[1][1] + "|" + judge[1][2]);
 		//System.out.println(judge[2][0] + "|" + judge[2][1] + "|" + judge[2][2]);
 		//System.out.println(hogehoge[0] + " ::: " + hogehoge[1] + " ::: " + hogehoge[2]);
-		
+
 		double x = Math.random();
-		
+
 		if (x<hogehoge[0]) {
 			return 0;
 		} else if (x<hogehoge[0] + hogehoge[1]) {
@@ -90,9 +92,16 @@ public class CPU extends Player {
 			return 2;
 		}
 	}
+
+	//パターン書き出し
+	public void PatternFileWriter(int [] a,int turn){
+		
+	}
+	
 	
 	//ほんへ
 	//パターン抽出
+	//毎ターンずつ何の手を出せばよいのか思考する
 	public void Pattern(int [] a,int turn){
 		
 		String PatternFile_path = "src\\Janken\\PatternFile.txt";
@@ -105,31 +114,39 @@ public class CPU extends Player {
 		}
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
-		
+
 		//仮変数
+		//４～７の文字列をlistに格納する
 		int x=4;
 		
-		if(a.length > x) {
-			for(int i=x;i<a.length;i++) {
-				for(int l=x;l>0;l--) {
-					list1.add(a[i-l]);
-				}
-				for(int j=x+1;j<a.length;j++) {
-					//小さい順に格納
-					for(int l=x;l>0;l--) {
-						list2.add(a[j-l]);
-					}
-					if(list1.equals(list2)) {
-						
-					}
-				}
+		//何回繰り返しているか？
+		int [] Count = new int [7];
+		//カウント
+		for(int i=0;i<7;i++) {
+			Count[i] = 0;
+		}
+		
+		//繰り返した後の手
+		int [] CPUHands = new int [7];
+		//
+		for(int i=0;i<7;i++) {
+			CPUHands[i] = 0;
+		}
+		
+		//直前の4~7(変数x)のパターン抽出
+		for(int i=a.length-x;i<a.length;i++) {
+			list1.add(a[i]);
+		}
+		//最初の手から最後まで読込・・・・
+		for(int j=x+1;j<a.length;j++) {
+			//小さい順に格納
+			for(int l=x;l>0;l--) {
+				list2.add(a[j-l]);
 			}
+			if(list1.equals(list2)) {
+				Count[x]++;
+			}
+
 		}
 	}
-	//パターン解析3
-	
-	
-	
-	
-	
 }
