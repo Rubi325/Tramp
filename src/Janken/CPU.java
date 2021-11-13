@@ -27,17 +27,17 @@ public class CPU extends Player {
 
 		if(turn > 1) {
 			//代入
-			judge[a[turn-2]][a[turn-1]]++;
+			//judge[a[turn-2]][a[turn-1]]++;
 
 			//ほんへ
+			//PatternFileWriter(a,turn);
 			//パターン解析4-7書出
-			PatternFileWriter(a,turn);
 			//パターン抽出
-			Pattern(a,turn);
-
-			//パターン選択
-
+			if(turn > 4) {
+				return Hands.fromInt(Pattern(a,turn));
+			}
 			//モンテカルロ法呼出↓
+			/*
 			switch(a[turn]) {
 			case 0:
 				return Hands.fromInt(Calculate(0));
@@ -46,8 +46,9 @@ public class CPU extends Player {
 			case 2:
 				return Hands.fromInt(Calculate(2));
 			}
+			 */
 		}
-
+		//モンテカルロ法時解放！！
 		return Hands.fromInt((int) (Math.random() * 3));
 	}
 
@@ -95,15 +96,15 @@ public class CPU extends Player {
 
 	//パターン書き出し
 	public void PatternFileWriter(int [] a,int turn){
-		
+
 	}
-	
-	
+
+
 	//ほんへ
 	//パターン抽出
 	//毎ターンずつ何の手を出せばよいのか思考する
-	public void Pattern(int [] a,int turn){
-		
+	public int Pattern(int [] a,int turn){
+
 		String PatternFile_path = "src\\Janken\\PatternFile.txt";
 		File file = new File(PatternFile_path);
 		try {
@@ -115,38 +116,72 @@ public class CPU extends Player {
 		ArrayList<Integer> list1 = new ArrayList<Integer>();
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
 
-		//仮変数
-		//４～７の文字列をlistに格納する
-		int x=4;
+		//Turnの大きさ、繰返し判定
+		int turn_len = 0;
+		for(int i=4;i<8;i++){//
+			if(turn < i) {
+				turn_len = i;
+			}
+		}
 		
+		//便利なtemp君
+		int temp=0;
 		//何回繰り返しているか？
 		int [] Count = new int [7];
-		//カウント
+		//カウント,全てに０を代入
 		for(int i=0;i<7;i++) {
 			Count[i] = 0;
 		}
-		
-		//繰り返した後の手
-		int [] CPUHands = new int [7];
-		//
-		for(int i=0;i<7;i++) {
+		//繰り返した後の手 0~7
+		int [] CPUHands = new int [8];
+		//次の手
+		for(int i=0;i<CPUHands.length;i++) {
 			CPUHands[i] = 0;
 		}
 		
-		//直前の4~7(変数x)のパターン抽出
-		for(int i=a.length-x;i<a.length;i++) {
-			list1.add(a[i]);
+		for(int cur = 4;cur<=turn_len;cur++) {
+			//仮変数
+			//４～７の文字列をlistに格納する
+			int x=cur;
+			//直前の4~7(変数x)のパターン抽出
+			for(int i=a.length-x;i<a.length;i++) {
+				list1.add(a[i]);
+			}
+			
+			//0から(最後の手-1)まで読込・・・・
+			//0 1 2 3 4 5 6 7
+			//4の時
+			//0123 1234 2345 3456 4567
+			//5の時
+			//01234 12345 23456 34567
+			for(int j=0;j<a.length-cur+1;j++) {
+				//小さい順に格納
+				for(int l=j;l<j+x;l++) {
+					list2.add(a[l]);
+					//次の手の値格納・・・CPUHands
+					//連続したパターンの回数を格納・・・Count
+					//Countには４～７のパターン事に調べる
+					if(list1.equals(list2)) {
+						Count[x] ++;
+						CPUHands[x] = a[l];
+					}
+				}
+				//list2中身消す
+				list2.clear();
+			}
+			list1.clear();
+			
+			//Count[0~6]
+			int intMax = Count[0];
+			for(int i=1;i<Count.length;i++) {
+				if(intMax<Count[i]) {
+					intMax = Count[i];
+					temp = i;
+				}
+			}
 		}
-		//最初の手から最後まで読込・・・・
-		for(int j=x+1;j<a.length;j++) {
-			//小さい順に格納
-			for(int l=x;l>0;l--) {
-				list2.add(a[j-l]);
-			}
-			if(list1.equals(list2)) {
-				Count[x]++;
-			}
+		
+		return CPUHands[temp];
 
-		}
 	}
 }

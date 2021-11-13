@@ -29,8 +29,8 @@ public class main {
 		//ターン数、じゃんけんの手の格納用配列　
 		int turn = 0;
 
-		int [] yourHands = new int [1000];
-		int [] enemyHands = new int [1000];
+		int [] yourHands = new int [10000];
+		int [] enemyHands = new int [10000];
 
 		//game,名前入力
 		System.out.print("おなまえを入力して下さい。： > ");
