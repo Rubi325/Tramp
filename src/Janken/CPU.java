@@ -27,7 +27,7 @@ public class CPU extends Player {
 
 		if(turn > 1) {
 			//代入
-			judge[a[turn-2]][a[turn-1]]++;
+			//judge[a[turn-2]][a[turn-1]]++;
 
 			//ほんへ
 			//PatternFileWriter(a,turn);
@@ -36,7 +36,10 @@ public class CPU extends Player {
 			if(turn > 4) {
 				return Hands.fromInt(Pattern(a,turn));
 			}else {
-				//モンテカルロ法呼出↓
+				return Hands.fromInt(WinHands(a[turn-1]));
+			}
+			/*
+			//モンテカルロ法呼出↓
 				switch(a[turn]) {
 				case 0:
 					return Hands.fromInt(Calculate(0));
@@ -45,8 +48,7 @@ public class CPU extends Player {
 				case 2:
 					return Hands.fromInt(Calculate(2));
 				}
-			}
-
+			 */
 		}
 		//モンテカルロ法時解放！！
 		//System.out.println("nyahahaha!");
@@ -120,6 +122,8 @@ public class CPU extends Player {
 		}
 		//便利なtemp君
 		int temp=0;
+		int temp1=0;
+		int temp2=0;
 		//何回繰り返しているか？
 		int [] Count = new int [8];
 		//カウント,全てに０を代入
@@ -137,35 +141,34 @@ public class CPU extends Player {
 			//仮変数
 			//４～７の文字列をlistに格納する
 			int x=cur;
-			int nexthand = 0;
-			//System.out.println(x + "waaa");
 			//直前の4~7(変数x)のパターン抽出
-			for(int i=a.length-x;i<a.length;i++) {
+			for(int i=turn-x;i<turn;i++) {
 				list1.add(a[i]);
 			}
-			//System.out.println("Debug.log");
+			System.out.println("Debug.log list 1 ::: " + list1);
 			//0から(最後の手-1)まで読込・・・・
-			//0 1 2 3 4 5 6 7
-			//4の時
-			//0123 1234 2345 3456 4567
-			//5の時
-			//01234 12345 23456 34567
-			for(int j=0;j<turn-cur+1;j++) {
+			for(int j=0;j<turn-cur;j++) {
 				//小さい順に格納
 				//System.out.println(" Debug.log : " + j + " hogehoge : " + turn);
 				for(int l=j;l<j+x;l++) {
 					list2.add(a[l]);
 					//System.out.println(list2);
-					nexthand = l+1;
 				}
-				//System.out.println(list2);
+				System.out.println(list2 + " " + turn);
 				//次の手の値格納・・・CPUHands
 				//連続したパターンの回数を格納・・・Count
 				//Countには４～７のパターン事に調べる
 				if(list1.equals(list2)) {
 					Count[x] ++;
-					CPUHands[x] = a[nexthand];
+					CPUHands[x] = a[j];
+					System.out.println("CPUHands @ " + CPUHands[x] + " COUNT @ " + Count[x]);
 					//System.out.println("Debug.log('match!')");
+				}else{
+					temp1 = EqualsRate(list1,list2,x);
+					if(temp1 >= temp2) {
+						temp2 = temp1;
+					}
+					
 				}
 				//list2中身消す
 				list2.clear();
@@ -181,7 +184,18 @@ public class CPU extends Player {
 				}
 			}	
 		}
+		System.out.println(temp);
 		return WinHands(CPUHands[temp]);
+	}
+	
+	private static int EqualsRate(ArrayList<Integer> list1, ArrayList<Integer> list2,int len) {
+		int parsent=0;
+		for(int i=0;i<len;i++) {
+			if(list1.get(i).equals(list2.get(i))) {
+				parsent++;
+			}
+		}
+		return parsent*100/len;
 	}
 
 	public static int WinHands(int hand) {
