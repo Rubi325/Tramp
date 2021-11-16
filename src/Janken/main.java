@@ -29,8 +29,8 @@ public class main {
 		//ターン数、じゃんけんの手の格納用配列　
 		int turn = 0;
 
-		int [] yourHands = new int [10000];
-		int [] enemyHands = new int [10000];
+		int [] yourHands = new int [1000];
+		int [] enemyHands = new int [1000];
 
 		//game,名前入力
 		System.out.print("おなまえを入力して下さい。： > ");
@@ -182,12 +182,12 @@ public class main {
 				if(Pre_PlayerName.equals(PlayerName)) {
 					System.out.println(NamePoint + PlayerName);
 					for(int i_0=0;i_0<2;i_0++) {//二行読込
-						System.out.println("Loading..." + i_0);
+						//System.out.println("Loading..." + i_0);
 						temp = sc.nextLine();
 						String strSplit[] = temp.split("");
 						int intStdInLen = strSplit.length;
 						int intSplit [] = new int[intStdInLen];
-						System.out.println("Veah" + intStdInLen);
+						//System.out.println("Veah" + intStdInLen);
 						for(int i=0;i<intStdInLen;i++) {
 							if(i%2==0) {
 								intSplit[i] = Integer.parseInt(strSplit[i]);
@@ -200,11 +200,11 @@ public class main {
 					NamePoint+=2;
 					//System.out.println(Pre_PlayerName + " :: " + NamePoint);
 				}else {
-					System.out.println("Othor Player!");
+					//System.out.println("Othor Player!");
 				}
 			}else {
 				Pre_PlayerName = sc.nextLine();
-				System.out.println("Othor Player's Hands");
+				//System.out.println("Othor Player's Hands");
 			}
 
 			NamePoint++;
