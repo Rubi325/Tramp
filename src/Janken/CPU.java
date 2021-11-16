@@ -117,12 +117,9 @@ public class CPU extends Player {
 		ArrayList<Integer> list2 = new ArrayList<Integer>();
 
 		//Turn‚Ì‘å‚«‚³AŒJ•Ô‚µ”»’è
+		//turn‚Í‰Šú’l5
 		int turn_len = 0;
-		for(int i=4;i<8;i++){//
-			if(turn < i) {
-				turn_len = i;
-			}
-		}
+		
 		
 		//•Ö—˜‚ÈtempŒN
 		int temp=0;
@@ -143,6 +140,7 @@ public class CPU extends Player {
 			//‰¼•Ï”
 			//‚S`‚V‚Ì•¶š—ñ‚ğlist‚ÉŠi”[‚·‚é
 			int x=cur;
+			System.out.println(x + "waaa");
 			//’¼‘O‚Ì4~7(•Ï”x)‚Ìƒpƒ^[ƒ“’Šo
 			for(int i=a.length-x;i<a.length;i++) {
 				list1.add(a[i]);
