@@ -43,14 +43,17 @@ public class main {
 
 		//ファイル読込
 		ReadLogFile(yourName);
-		//System.out.println("aaaaa");
-		System.out.println("pre_turn : " + Pre_Turn);
+		//ターン確認用
+		//System.out.println("pre_turn : " + Pre_Turn);
 		//過去データがあれば代入
+		if(Pre_Turn>0) {
+			System.out.println("前回のプレイデータを読み込みました");
+		}
+		
 		for(int i=0;i<Pre_Turn;i++) {
 			yourHands[i] = Pre_yourHands[i];
 			enemy.nextHand(yourHands, i);
 			turn++;
-			System.out.println(Pre_Turn + " " + turn);
 		}
 		//System.out.println(turn + " " + Pre_Turn);
 
@@ -180,7 +183,7 @@ public class main {
 				//System.out.println(Pre_PlayerName + "  " + NamePoint);
 
 				if(Pre_PlayerName.equals(PlayerName)) {
-					System.out.println(NamePoint + PlayerName);
+					//System.out.println(NamePoint + PlayerName);
 					for(int i_0=0;i_0<2;i_0++) {//二行読込
 						//System.out.println("Loading..." + i_0);
 						temp = sc.nextLine();

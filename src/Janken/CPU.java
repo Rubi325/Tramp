@@ -26,7 +26,7 @@ public class CPU extends Player {
 	public Hands nextHand(int [] a,int turn) { //リズム実装
 
 		if(turn > 1) {
-			//代入
+			//モンテカルロ法時解放！　表代入
 			//judge[a[turn-2]][a[turn-1]]++;
 
 			//ほんへ
@@ -51,7 +51,6 @@ public class CPU extends Player {
 			 */
 		}
 		//モンテカルロ法時解放！！
-		//System.out.println("nyahahaha!");
 		return Hands.fromInt((int) (Math.random() * 3));
 	}
 
@@ -80,7 +79,7 @@ public class CPU extends Player {
 				hogehoge[i] = judge[a][i] / len;
 			}
 		}
-
+		//markov連鎖が分かるやつ
 		//System.out.println(judge[0][0] + "|" + judge[0][1] + "|" + judge[0][2]);
 		//System.out.println(judge[1][0] + "|" + judge[1][1] + "|" + judge[1][2]);
 		//System.out.println(judge[2][0] + "|" + judge[2][1] + "|" + judge[2][2]);
@@ -120,7 +119,7 @@ public class CPU extends Player {
 		if(turn_len >= 7) {
 			turn_len = 7;
 		}
-		//便利なtemp君
+		//便利なtemp君達
 		int temp=0;
 		int temp1=0;
 		int temp2=0;
@@ -138,6 +137,8 @@ public class CPU extends Player {
 		}
 		// 4XXX 5XXXX 6XXXXX 7XXXXXX		
 		for(int cur = 4;cur<=turn_len;cur++) {
+			//ぴったしの時が無かった場合
+			boolean equals = false;
 			//仮変数
 			//４～７の文字列をlistに格納する
 			int x=cur;
@@ -145,30 +146,40 @@ public class CPU extends Player {
 			for(int i=turn-x;i<turn;i++) {
 				list1.add(a[i]);
 			}
-			System.out.println("Debug.log list 1 ::: " + list1);
+			//list1値確認用
+			//System.out.println("Debug.log list 1 .... " + list1);
 			//0から(最後の手-1)まで読込・・・・
 			for(int j=0;j<turn-cur;j++) {
 				//小さい順に格納
-				//System.out.println(" Debug.log : " + j + " hogehoge : " + turn);
 				for(int l=j;l<j+x;l++) {
 					list2.add(a[l]);
+					//list2確認用
 					//System.out.println(list2);
 				}
-				System.out.println(list2 + " " + turn);
+				
+				//list2,turn確認
+				//System.out.println(list2 + " " + turn);
+				
 				//次の手の値格納・・・CPUHands
 				//連続したパターンの回数を格納・・・Count
 				//Countには４～７のパターン事に調べる
 				if(list1.equals(list2)) {
 					Count[x] ++;
 					CPUHands[x] = a[j];
-					System.out.println("CPUHands @ " + CPUHands[x] + " COUNT @ " + Count[x]);
+					//マッチした際のCount[x]とCPUHands[x]の値
 					//System.out.println("Debug.log('match!')");
+					//System.out.println("CPUHands equal... " + CPUHands[x] + " COUNT @ " + Count[x]);
+					equals = true;
 				}else{
 					temp1 = EqualsRate(list1,list2,x);
+					//パーセント確認用
+					//System.out.println(temp1 + " % ");
 					if(temp1 >= temp2) {
 						temp2 = temp1;
+						Count[x]=temp1;
+						CPUHands[x] = a[j];
 					}
-					
+
 				}
 				//list2中身消す
 				list2.clear();
@@ -178,16 +189,24 @@ public class CPU extends Player {
 			//Count[0~6]
 			int intMax = Count[0];
 			for(int i=1;i<Count.length;i++) {
-				if(intMax<Count[i]) {
-					intMax = Count[i];
-					temp = i;
+				if(equals) {
+					if(intMax<Count[i]) {
+						intMax = Count[i];
+						temp = i;
+					}
+				}else {
+					if(intMax<Count[i]) {
+						intMax = Count[i];
+						temp = i;
+					}
 				}
 			}	
 		}
-		System.out.println(temp);
-		return WinHands(CPUHands[temp]);
+		//変数tempの確認
+		//System.out.println(temp);
+		return WinHands(CPUHands[temp]); //ここで勝てる手に変換
 	}
-	
+
 	private static int EqualsRate(ArrayList<Integer> list1, ArrayList<Integer> list2,int len) {
 		int parsent=0;
 		for(int i=0;i<len;i++) {
