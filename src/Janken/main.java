@@ -60,6 +60,7 @@ public class main {
 		//game開始、二回
 		for(int i=0;i<2;i++) {
 			while(p_points < 5 && e_points < 5) {
+				System.out.println();
 				Hands yourHand  = you.nextHand(yourHands,turn);
 				Hands enemyHand = enemy.nextHand(yourHands,turn);
 
@@ -68,7 +69,7 @@ public class main {
 				
 				yourHands[turn] = Math_P_Hands(yourHand);
 				enemyHands[turn] = Math_E_Hands(enemyHand);
-
+				System.out.println();
 				if (yourHand.winTo(enemyHand)) {
 					System.out.println(yourName + "　のかち！");
 					p_points += 1;
@@ -127,9 +128,9 @@ public class main {
 	//勝敗判定
 	private static String Judge(int player,int enemy) {
 		if(player>enemy) {
-			return "You Win !!!";
+			return "You Win !!!....Congratulations!Congratulations!";
 		}else {
-			return "You Lose...";
+			return "You Lose...何で負けたか明日まで考えといてください!";
 		}
 	}
 	//HandsFile.txtへの書き込み

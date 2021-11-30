@@ -15,7 +15,6 @@ public class CPU extends Player {
 	int gu=0,choki=0,pa=0;
 
 
-
 	@Override
 	public void setName() {
 		String enemyName = names[(int) (Math.random() * names.length)];
@@ -179,7 +178,6 @@ public class CPU extends Player {
 						Count[x]=temp1;
 						CPUHands[x] = a[j];
 					}
-
 				}
 				//list2íÜêgè¡Ç∑
 				list2.clear();
