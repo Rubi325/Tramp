@@ -18,14 +18,14 @@ public class Challengers extends Player {
 		Random r = new Random();
 
 		while (true) {
-			System.out.println("‚S•bˆÈ“à‚Éè‚ğo‚·‚ñ‚¾A’OŸ˜Y");
+			System.out.println("‚S•bˆÈ“à‚Éè‚ğo‚·‚ñ‚¾...");
 			System.out.print("‰½‚ğo‚µ‚Ü‚·‚©? ƒO[:0 ƒ`ƒ‡ƒL:1 ƒp[:2  > ");
 			try {
 				int hand_number = Integer.parseInt(scanner.nextLine());
 				if (0 <= hand_number && hand_number <= 2) {
 					long end = System.currentTimeMillis();
 					if((end - start) > 4000) {
-						System.err.println("è‚ğo‚·”»’f‚ª’x‚¢II" + ((end -start)/1000) + "•bˆÈãŒo‰ß");
+						System.err.println("”»’f‚ª’x‚¢I@@" + ((end -start)/1000) + "•bˆÈãŒo‰ß");
 						return Hands.fromInt(r.nextInt(3));
 					}else {
 						return Hands.fromInt(hand_number);
