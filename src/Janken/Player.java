@@ -9,7 +9,7 @@ public abstract class Player {
 
     public abstract void setName();
 
-    public abstract Hands nextHand(int [] a,int turn);
+    public abstract Hands nextHand(int [] a,int turn) throws TooLateException;
 	
 	
 }

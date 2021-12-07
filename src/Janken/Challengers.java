@@ -11,7 +11,7 @@ public class Challengers extends Player {
 	}
 
 	@Override
-	public Hands nextHand(int [] a,int turn) {
+	public Hands nextHand(int [] a,int turn) throws TooLateException {
 		Scanner scanner = new Scanner(System.in);
 		//ŠÔŒv‘ª
 		long start = System.currentTimeMillis();
@@ -26,7 +26,8 @@ public class Challengers extends Player {
 					long end = System.currentTimeMillis();
 					if((end - start) > 4000) {
 						System.err.println("”»’f‚ª’x‚¢I@@" + ((end -start)/1000) + "•bˆÈãŒo‰ß");
-						return Hands.fromInt(r.nextInt(3));
+						throw new TooLateException("è‚ğo‚·”»’f‚ª’x‚¢II"+ ((end -start)/1000) + "•bˆÈãŒo‰ß");
+						//return Hands.fromInt(r.nextInt(3));
 					}else {
 						return Hands.fromInt(hand_number);
 					}

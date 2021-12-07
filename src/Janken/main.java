@@ -16,7 +16,7 @@ public class main {
 	static int [] Pre_yourHands = new int [1000] ;
 	static boolean NameWriting = true;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, TooLateException {
 
 		Player you   = new Challengers();
 		Player enemy = new CPU();
@@ -31,6 +31,9 @@ public class main {
 
 		int [] yourHands = new int [1000];
 		int [] enemyHands = new int [1000];
+
+		//判断が遅い！判定
+		boolean water=false;
 
 		//game,名前入力
 		System.out.print("おなまえを入力して下さい。： > ");
@@ -49,7 +52,7 @@ public class main {
 		if(Pre_Turn>0) {
 			System.out.println("前回のプレイデータを読み込みました");
 		}
-		
+
 		for(int i=0;i<Pre_Turn;i++) {
 			yourHands[i] = Pre_yourHands[i];
 			enemy.nextHand(yourHands, i);
@@ -60,29 +63,42 @@ public class main {
 		//game開始、二回
 		for(int i=0;i<2;i++) {
 			while(p_points < 5 && e_points < 5) {
-				System.out.println();
-				Hands yourHand  = you.nextHand(yourHands,turn);
-				Hands enemyHand = enemy.nextHand(yourHands,turn);
 
-				System.out.println(yourName   + "は　" + yourHand  +  "  をだした。");
-				System.out.println(enemyName  + "は　" + enemyHand +  "  をだした。");
-				
-				yourHands[turn] = Math_P_Hands(yourHand);
-				enemyHands[turn] = Math_E_Hands(enemyHand);
 				System.out.println();
-				if (yourHand.winTo(enemyHand)) {
-					System.out.println(yourName + "　のかち！");
-					p_points += 1;
-				} else if (yourHand.loseTo(enemyHand)) {
+				try {
+					Hands yourHand  = you.nextHand(yourHands,turn);
+					Hands enemyHand = enemy.nextHand(yourHands,turn);
+
+					System.out.println(yourName   + "は　" + yourHand  +  "  をだした。");
+					System.out.println(enemyName  + "は　" + enemyHand +  "  をだした。");
+
+					yourHands[turn] = Math_P_Hands(yourHand);
+					enemyHands[turn] = Math_E_Hands(enemyHand);
+					System.out.println();
+					if (yourHand.winTo(enemyHand)) {
+						System.out.println(yourName + "　のかち！");
+						p_points += 1;
+					} else if (yourHand.loseTo(enemyHand)) {
+						System.out.println(yourName + "　のまけ…");
+						e_points += 1;
+					} else {
+						System.out.println("あいこです。");
+					}
+
+				}catch(TooLateException ex) {
+					System.out.println(ex.getMessage());
 					System.out.println(yourName + "　のまけ…");
+					water = true;
 					e_points += 1;
-				} else {
-					System.out.println("あいこです。");
 				}
-				//ここで手をHandsFileに書き込む
-				Memorizer(yourName,yourHands[turn],enemyHands[turn],e_points,p_points,turn);
 
+				//ここで手をHandsFileに書き込む
+				Memorizer(yourName,yourHands[turn],enemyHands[turn],e_points,p_points,turn,i,water);
 				turn +=1;
+				if(water== true) {
+					turn--;
+					water = false;
+				}
 			}
 			System.out.println("--------------------------");
 			System.out.println("");
@@ -134,23 +150,33 @@ public class main {
 		}
 	}
 	//HandsFile.txtへの書き込み
-	private static void Memorizer(String name,int p_hands,int e_hands,int p_pointa,int e_pointa,int turn) {
+	private static void Memorizer(String name,int p_hands,int e_hands,int p_pointa,int e_pointa,int turn,int i,boolean water) {
 		try {
-			File file = new File("src\\Janken\\HandsFile.txt");
-			FileWriter pw = new FileWriter(file,true);
-			PrintWriter add = new PrintWriter(pw);
-			if(NameWriting == true) {
-				add.println(name);
-				NameWriting = false;
-			}
+			if(water==false) {
+				File file = new File("src\\Janken\\HandsFile.txt");
+				FileWriter pw = new FileWriter(file,true);
+				PrintWriter add = new PrintWriter(pw);
+				if(NameWriting == true) {
+					add.println(name);
+					NameWriting = false;
+				}
 
-			add.print(p_hands + "" + e_hands);
-			if(p_pointa == 5 || e_pointa == 5) {
-				add.println();
+				add.print(p_hands + "" + e_hands);
+				if(p_pointa == 5 || e_pointa == 5) {
+					add.println();
+				}
+				add.flush();
+				add.close();
+			}else {
+				File file = new File("src\\Janken\\HandsFile.txt");
+				FileWriter pw = new FileWriter(file,true);
+				PrintWriter add = new PrintWriter(pw);
+				if(p_pointa == 5 || e_pointa == 5) {
+					add.println();
+				}
+				add.flush();
+				add.close();
 			}
-			add.flush();
-			add.close();
-
 		}catch(IOException e) {
 			System.out.println("error!!");
 			e.printStackTrace();

@@ -146,7 +146,7 @@ public class CPU extends Player {
 				list1.add(a[i]);
 			}
 			//list1値確認用
-			//System.out.println("Debug.log list 1 .... " + list1);
+			System.out.println("Debug.log list 1 .... " + list1);
 			//0から(最後の手-1)まで読込・・・・
 			for(int j=0;j<turn-cur;j++) {
 				//小さい順に格納
@@ -166,8 +166,8 @@ public class CPU extends Player {
 					Count[x] ++;
 					CPUHands[x] = a[j];
 					//マッチした際のCount[x]とCPUHands[x]の値
-					//System.out.println("Debug.log('match!')");
-					//System.out.println("CPUHands equal... " + CPUHands[x] + " COUNT @ " + Count[x]);
+					System.out.println("Debug.log('match!')");
+					System.out.println("CPUHands equal... " + CPUHands[x] + " COUNT @ " + Count[x]);
 					equals = true;
 				}else{
 					temp1 = EqualsRate(list1,list2,x);

@@ -16,7 +16,7 @@ public class ResultGraph {
 
 		System.out.println("結果集計！！！");
 
-		String HandsFile_Path = "src\\Janken\\HandsFile2.txt" ;
+		String HandsFile_Path = "src\\Janken\\HandsFile.txt" ;
 		File file = new File(HandsFile_Path);
 
 		Scanner sc;
