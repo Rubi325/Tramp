@@ -9,11 +9,29 @@ public class ResultGraph {
 
 	static int WinCount=0;
 	static int LoseCount=0;
-
+	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		//結果処理
 
+		int counts = 0;
+		int [] setC= new int[4];
+		int [] setP= new int[4];
+		double [] loselose = new double [4];
+		double [] winwin = new double [4];
+		double [] eveneven = new double [4];
+		
+		int [] round = new int[4];
+		for(int i=0;i<round.length;i++) {
+			round[i] = 0;
+			loselose[i] = 0.0;
+			winwin[i] = 0.0;
+			eveneven[i] = 0.0;
+			setC[i] = 0;
+			setP[i] = 0;
+		}
+		
+		
 		System.out.println("結果集計！！！");
 
 		String HandsFile_Path = "src\\Janken\\HandsFile.txt" ;
@@ -39,8 +57,8 @@ public class ResultGraph {
 			if(count%3==0) {
 				name = sc.nextLine();
 				for(int j=0;j<2;j++) {
-					System.out.println("Round" + (j+1) + "です。");
-					System.out.println();
+					//System.out.println("Round" + (j+1) + "です。");
+					//System.out.println();
 					temp = sc.nextLine();
 					String strSplit[] = temp.split("");
 					int intStdInLen = strSplit.length;
@@ -58,15 +76,18 @@ public class ResultGraph {
 						
 						if(x==0) {
 							CountEven++;
-							System.out.println("あいこです");
+							eveneven[counts]++;
+							//System.out.println("あいこです");
 						}else if(x==1) {
 							CountPlayer++;
-							System.out.println("プレイヤーの勝ちです");
+							loselose[counts]++;
+							//System.out.println("プレイヤーの勝ちです");
 						}else {
 							CountCPU++;
-							System.out.println("プレイヤーの負けです");
+							winwin[counts]++;
+							//System.out.println("プレイヤーの負けです");
 						}
-						System.out.println();
+						//System.out.println();
 						if(i==intStdInLen-2 && j==0) {
 							RoundPlayer = CountPlayer;
 							RoundCPU = CountCPU;
@@ -87,29 +108,64 @@ public class ResultGraph {
 				int CE = CountEven;
 				int C_total = (CP+CC+CE);
 
-				System.out.println();
+				//System.out.println();
 				System.out.println("プレイヤー名 : " + name);
 				System.out.println("Round1");
 				System.out.println("プレイヤー勝利数　：　" + RP + " CPU勝利数　：　" + RC + " あいこ数　：　" + RE);
 				System.out.println("Playerの勝率　：　" + RP*100/R_total + " %  CPUの勝率　: " + RC*100/R_total + " % ");
 				Result(RP*100/R_total,RC*100/R_total);
-				System.out.println();
+				//System.out.println();
 				System.out.println("Round2");
 				System.out.println("プレイヤー勝利数　：　" + RP2 + " CPU勝利数　：　" + RC2 + " あいこ数　：　" +RE2);
 				System.out.println("Playerの勝率　：　" + RP2*100/R2_total + " %  CPUの勝率　: " + RC2*100/R2_total + " % ");
 				Result(RP2*100/R2_total,RC2*100/R2_total);
-				System.out.println();
+				//System.out.println();
 				System.out.println("Round1＋Round2");
 				System.out.println("プレイヤー勝利数　：　" + CP+ " CPU勝利数　：　" + CC + " あいこ数　：　" + CE);
 				System.out.println("Playerの勝率　：　" + CP*100/C_total + " %  CPUの勝率　: " + CC*100/C_total + " % ");
+				
+				if(RP==5) {
+					setP[counts]++;
+				}else if(RC==5) {
+					setC[counts]++;
+				}
+				if(RP2==5) {
+					setP[counts]++;
+				}else if(RC2==5) {
+					setC[counts]++;
+				}
+				
 			}
+			counts++;
 			count+=3;
+			if(counts==4) {
+				counts=0;
+			}
 		}
-		System.out.println();
-		System.out.println();
+		//System.out.println();
+		//System.out.println();
 		System.out.println("Result...." + "CPUセット勝利数　：　" + WinCount + "　　Playerセット勝利数　：　"
 				+ LoseCount);
-		System.out.println("勝率...." + WinCount*100/(WinCount+LoseCount) + " %");
+		System.out.println("CPU勝率...." + WinCount*100/(WinCount+LoseCount) + " %" + "");
+		
+		double wins=0.0,loses=0.0,evens=0.0;
+		
+		for(int s=0;s<round.length;s++) {
+			System.out.println("各ラウンドCPU勝利数"+winwin[s]);
+			System.out.println("各ラウンドCPU敗北数"+loselose[s]);
+			System.out.println("各ラウンドCPU引き分け"+eveneven[s]);
+			System.out.println("CPU勝率" + (winwin[s]*100/(winwin[s]+loselose[s]+eveneven[s])) 
+					+ "Player勝率" + (loselose[s]*100/(winwin[s]+loselose[s]+eveneven[s])) 
+					+ "あいこ率" + (eveneven[s]*100/(winwin[s]+loselose[s]+eveneven[s])));
+			System.out.println(setP[s] + " : " + setC[s]);
+			wins+=winwin[s];
+			loses+=loselose[s];
+			evens+=eveneven[s];
+		}
+		
+		System.out.println("ACPU勝率" + (wins*100/(wins+loses+evens)) + "APY勝率" + 
+				(loses*100/(wins+loses+evens))+ "AE率" + (evens*100/(wins+loses+evens)));
+		
 	}
 
 	public static int judge(int p,int c) {
@@ -135,21 +191,21 @@ public class ResultGraph {
 
 	public static void HandsResult(int p,int c) {
 		int [] jank = new int [2];
-		System.out.println("P　：　C");
+		//System.out.println("P　：　C");
 		jank[0] = p;
 		jank[1] = c;
 		for(int i=0;i<2;i++) {
 			if(jank[i] == 0) {
-				System.out.print("グー");
+				//System.out.print("グー");
 			}else if(jank[i] == 1) {
-				System.out.print("チョキ");
+				//System.out.print("チョキ");
 			}else if(jank[i] == 2) {
-				System.out.print("パー");
+				//System.out.print("パー");
 			}
 			if(i==0) {
-				System.out.print("　：　");
+				//System.out.print("　：　");
 			}else {
-				System.out.println();
+				//System.out.println();
 			}
 		}
 	}

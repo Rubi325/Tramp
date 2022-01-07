@@ -25,7 +25,6 @@ public class main {
 		int p_points=0;
 		int e_points=0;
 
-
 		//ターン数、じゃんけんの手の格納用配列　
 		int turn = 0;
 
@@ -58,6 +57,7 @@ public class main {
 			enemy.nextHand(yourHands, i);
 			turn++;
 		}
+		//現時点のターンと以前のターン数確認用
 		//System.out.println(turn + " " + Pre_Turn);
 
 		//game開始、二回
@@ -195,6 +195,8 @@ public class main {
 		File file = new File("src\\Janken\\HandsFile.txt");
 
 		max = CountLine.CountLineResult(HandsFile_path);
+		
+		//挙動確認用
 		//System.out.println(max);
 
 		Scanner sc;
@@ -207,17 +209,28 @@ public class main {
 			//プレイヤー名判断
 			if(NamePoint%3 == 1) {
 				Pre_PlayerName = sc.nextLine();
+				
+				//挙動確認用
 				//System.out.println(Pre_PlayerName + "  " + NamePoint);
 
 				if(Pre_PlayerName.equals(PlayerName)) {
+					
+					//挙動確認用
 					//System.out.println(NamePoint + PlayerName);
+					
 					for(int i_0=0;i_0<2;i_0++) {//二行読込
+						
+						//挙動確認用
 						//System.out.println("Loading..." + i_0);
+						
 						temp = sc.nextLine();
 						String strSplit[] = temp.split("");
 						int intStdInLen = strSplit.length;
 						int intSplit [] = new int[intStdInLen];
+						
+						//挙動確認用
 						//System.out.println("Veah" + intStdInLen);
+						
 						for(int i=0;i<intStdInLen;i++) {
 							if(i%2==0) {
 								intSplit[i] = Integer.parseInt(strSplit[i]);
@@ -226,14 +239,22 @@ public class main {
 							}
 						}
 					}
+					
+					//挙動確認用
 					//System.out.println(Pre_PlayerName + " : " + NamePoint);
+					
 					NamePoint+=2;
+					
+					//挙動確認用
 					//System.out.println(Pre_PlayerName + " :: " + NamePoint);
+					
 				}else {
+					//挙動確認用
 					//System.out.println("Othor Player!");
 				}
 			}else {
 				Pre_PlayerName = sc.nextLine();
+				//挙動確認用
 				//System.out.println("Othor Player's Hands");
 			}
 
@@ -241,8 +262,7 @@ public class main {
 		}
 
 		sc.close();
-
+		//挙動確認用
 		//System.out.println("Pre_turn:" + Pre_Turn);
-		//return Pre_Turn;
 	}
 }

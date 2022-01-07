@@ -28,17 +28,20 @@ public class CPU extends Player {
 			//モンテカルロ法時解放！　表代入
 			//judge[a[turn-2]][a[turn-1]]++;
 
-			//ほんへ
+			//パターン解析AI
 			//PatternFileWriter(a,turn);
 			//パターン解析4-7書出
 			//パターン抽出
-			if(turn > 4) {
+			
+			if(turn > 7) {
 				return Hands.fromInt(Pattern(a,turn));
 			}else {
 				return Hands.fromInt(WinHands(a[turn-1]));
 			}
-			/*
+			
+			
 			//モンテカルロ法呼出↓
+			/*
 				switch(a[turn]) {
 				case 0:
 					return Hands.fromInt(Calculate(0));
@@ -47,18 +50,17 @@ public class CPU extends Player {
 				case 2:
 					return Hands.fromInt(Calculate(2));
 				}
-			 */
+			*/
+			 
 		}
 		//モンテカルロ法時解放！！
 		return Hands.fromInt((int) (Math.random() * 3));
 	}
 
-	//モンテカルロ法↓
-	//モンテカルロ法整理
 	//グ―、チョキ、パーで各手の次の確立を記憶させる
 	//前の手　-> 次の手
 	//int a [] からは前の手を記憶させてある
-	/* | e\p | g | c | p |
+	/* |     | g | c | p |
 	 * |-----|---|---|---|
 	 * |  g  | 0 | 0 | 0 |
 	 * |  c  | 0 | 0 | 0 |
@@ -95,8 +97,6 @@ public class CPU extends Player {
 		}
 	}
 
-	//ほんへ
-	//パターン抽出
 	//毎ターンずつ何の手を出せばよいのか思考する
 	public int Pattern(int [] a,int turn){
 
@@ -118,22 +118,23 @@ public class CPU extends Player {
 		if(turn_len >= 7) {
 			turn_len = 7;
 		}
-		//便利なtemp君達
+		
 		int temp=0;
-		int temp1=0;
-		int temp2=0;
+		double temp1=0.0;
+		double temp2=0.0;
+		
 		//何回繰り返しているか？
-		int [] Count = new int [8];
-		//カウント,全てに０を代入
+		double [] Count = new double [8];
 		for(int i=0;i<Count.length;i++) {
-			Count[i] = 0;
+			Count[i] = 0.0;
 		}
+		
 		//繰り返した後の手 0~7
 		int [] CPUHands = new int [8];
-		//次の手
 		for(int i=0;i<CPUHands.length;i++) {
 			CPUHands[i] = 0;
 		}
+		
 		// 4XXX 5XXXX 6XXXXX 7XXXXXX		
 		for(int cur = 4;cur<=turn_len;cur++) {
 			//ぴったしの時が無かった場合
@@ -153,7 +154,7 @@ public class CPU extends Player {
 				for(int l=j;l<j+x;l++) {
 					list2.add(a[l]);
 					//list2確認用
-					//System.out.println(list2);
+					System.out.println(list2);
 				}
 				
 				//list2,turn確認
@@ -165,17 +166,12 @@ public class CPU extends Player {
 				if(list1.equals(list2)) {
 					Count[x] ++;
 					CPUHands[x] = a[j];
-					//マッチした際のCount[x]とCPUHands[x]の値
-					System.out.println("Debug.log('match!')");
-					System.out.println("CPUHands equal... " + CPUHands[x] + " COUNT @ " + Count[x]);
 					equals = true;
 				}else{
 					temp1 = EqualsRate(list1,list2,x);
-					//パーセント確認用
-					//System.out.println(temp1 + " % ");
 					if(temp1 >= temp2) {
 						temp2 = temp1;
-						Count[x]=temp1;
+						Count[x]=temp1*0.001;
 						CPUHands[x] = a[j];
 					}
 				}
@@ -185,23 +181,21 @@ public class CPU extends Player {
 			list1.clear();
 
 			//Count[0~6]
-			int intMax = Count[0];
+			double intMax = Count[0];
 			for(int i=1;i<Count.length;i++) {
 				if(equals) {
-					if(intMax<Count[i]) {
+					if(intMax<=Count[i]) {
 						intMax = Count[i];
 						temp = i;
 					}
 				}else {
-					if(intMax<Count[i]) {
+					if(intMax<=Count[i]) {
 						intMax = Count[i];
 						temp = i;
 					}
 				}
-			}	
+			}
 		}
-		//変数tempの確認
-		//System.out.println(temp);
 		return WinHands(CPUHands[temp]); //ここで勝てる手に変換
 	}
 
