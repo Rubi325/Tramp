@@ -147,14 +147,14 @@ public class CPU extends Player {
 				list1.add(a[i]);
 			}
 			//list1値確認用
-			System.out.println("Debug.log list 1 .... " + list1);
+			//System.out.println("Debug.log list 1 .... " + list1);
 			//0から(最後の手-1)まで読込・・・・
 			for(int j=0;j<turn-cur;j++) {
 				//小さい順に格納
 				for(int l=j;l<j+x;l++) {
 					list2.add(a[l]);
 					//list2確認用
-					System.out.println(list2);
+					//System.out.println(list2);
 				}
 				
 				//list2,turn確認
