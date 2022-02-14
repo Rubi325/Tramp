@@ -206,6 +206,7 @@ public class main {
 
 			String temp;
 
+			
 			//ƒvƒŒƒCƒ„[–¼”»’f
 			if(NamePoint%3 == 1) {
 				Pre_PlayerName = sc.nextLine();
